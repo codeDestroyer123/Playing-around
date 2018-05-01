@@ -19,14 +19,14 @@ class sorting{
         }
     } 
 
-    protected static long timedInsertionSort(int arr[]){
+    public static long timedInsertionSort(int arr[]){
         long startTime = System.currentTimeMillis();
         insertionSort(arr);
         long endTime = System.currentTimeMillis();
         return (endTime - startTime);
     }
 
-    protected static void printOut(int arr[]){
+    public static void printOut(int arr[]){
         for(int x:arr){
             System.out.print(x + " ");
         }
