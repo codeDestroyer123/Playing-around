@@ -15,13 +15,14 @@ class coinFlipper{
         return face;
     }
 
+
     public static void main(String args[]){
         boolean keepFlipping = true;
         while(keepFlipping == true){
             System.out.print("How many times would you like to flip?: ");
             Scanner userInput = new Scanner(System.in);
             int timesToFlip = userInput.nextInt();
-            userInput.close();
+            
             int heads, tails;
             heads = tails = 0;
             for(int i = 0 ; i < timesToFlip ; i++){
@@ -37,16 +38,27 @@ class coinFlipper{
 
             
             System.out.print("\nWould you like to flip again? (Y/N): ");
-            userInput = new Scanner(System.in);
-            char inputChar = userInput.next().chatAt(0);
-            if((inputChar == 'n') || (inputChar == 'N')){
-                keepFlipping = false;
-                System.out.println("your input was no");
-            }
-            else{
-                System.out.println("your input was yes");
+            
+            boolean validInput = false;
+            while(validInput == false){
+                userInput = new Scanner(System.in);
+                char inputChar = userInput.next().charAt(0);
+                
+                if((inputChar == 'n') || (inputChar == 'N')){
+                    keepFlipping = false;
+                    System.out.println("your input was N");
+                    validInput = true;
+                }
+                else if((inputChar == 'y') || (inputChar == 'Y')){
+                    System.out.println("your input was Y\n");
+                    validInput = true;
+                }
+                else{
+                    System.out.println("Please enter a valid input (Y/N): ");
+                }
             }
         }
+        
     }
 
 }
